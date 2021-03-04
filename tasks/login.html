@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Form</title>
+    <link href="style.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</head>
+
+<body>
+    <form action="#" method="POST" name="loginform">
+        <div class="d-flex flex-column justify-content-center align-items-center m-5">
+            <div class=" container col-md-4  border rounded p-5">
+                <h1 class="text-center">Login</h1>
+                <div class="form-group">
+                    <input type="text"  name="username"  class="form-control" id="uname" >
+                    <label for="uname" >Username</label>
+                </div>
+                <span id="user">Enter Your Username </span>
+                <div class="form-group">
+                    
+                    <input type="password"  name="password" id="password"
+                        class="form-control">
+                        <label for="password">Password</label>  
+                        <span id="psw">Enter Your Password</span>    
+                </div>
+                <div>
+                    <span>
+                        <input type="checkbox" name="remember"> Remember me
+                    </span>
+                </div>
+                <div>
+                    <button class="btn btn-warning text-white form-control" type="button"
+                        onclick="validateLogin()">Login</button>
+                </div>
+                <div class="d-flex justify-content-center align-items-center mt-4">
+                    <span class="psw"> <a href="#">Forgot password?</a></span>
+                </div>
+            </div>
+        </div>
+    </form>
+
+    <script>
+        function validateLogin() {
+            var username = document.getElementById("uname").value;
+            var password = document.getElementById("password").value;
+
+            if (username == "") {
+                document.getElementById("user").style.display = "block";
+                document.getElementById("uname").style.border = "1px solid red";
+            } else if (password == "") {
+                 document.getElementById("user").style.display = "none";
+                document.getElementById("uname").style.border = "1px solid green";
+                document.getElementById("psw").style.display = "block";
+                document.getElementById("password").style.border = "1px solid red";
+            } else {
+                document.getElementById("user").style.display = "none";
+                document.getElementById("uname").style.border = "1px solid green";
+                document.getElementById("psw").style.display = "none";
+                document.getElementById("password").style.border = "1px solid green";
+            }
+        }
+ 
+
+        $(document).ready(function(){
+          $(".form-group .form-control").blur(function(){
+              if($(this).val()!=""){
+                  $(this).siblings("label").addClass("active");
+              }else{
+                $(this).siblings("label").removeClass("active");
+              }
+          });
+        });
+
+    </script>
+
+</body>
+
+</html>

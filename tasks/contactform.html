@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Form</title>
+    <link href="style.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</head>
+
+<body>
+    <form action="#" method="POST" name="conatctform">
+        <div class="d-flex flex-column justify-content-center align-items-center m-5">
+            <div class="col-md-4  border rounded p-5">
+                <h1 class="text-center">Conatct Form</h1>
+                <div class="form-group">
+                    
+                    <input type="text" name="firstname" id="fname" class="form-control">
+                    <label for="firstname">First Name</label>
+                    <span id="firstname">Enter Your first name</span>
+                </div>
+                <div class="form-group">        
+                    <input type="text"  name="lastname" id="lname" class="form-control">
+                    <label for="lastname">Last Name</label>
+                    <span id="lastname">Enter Your last name</span>
+                </div>
+                <div class="form-group">
+
+                    <select class="form-control">
+                        <option></option>
+                        <option>India</option>
+                        <option>Austarlia</option>
+                        <option>USA</option>
+                        <option>Canada</option>
+                    </select>
+                    <label>Country</label>
+                </div>
+                <div class="form-group d-flex flex-column">                    
+                    <textarea  name="subject" class="form-control" id="subject" class="p-5"></textarea>
+                    <label for="Subject">Subject</label>
+                    <span id="sub">Please write subject</span>
+                </div>
+                <div>
+                    <button class="btn btn-warning text-white form-control" type="button"
+                        onclick="validateContact()">Submit</button>
+                </div>
+            </div>
+        </div>
+    </form>
+
+    <script>
+        function validateContact() {
+            var fname = document.getElementById("fname").value;
+            var lname = document.getElementById("lname").value;
+            var subject = document.getElementById("subject").value;
+
+            if (fname == "") {
+                document.getElementById("firstname").style.display = "block";
+                document.getElementById("fname").style.border = "1px solid red";
+            } else if (lname == "") {
+                document.getElementById("firstname").style.display = "none";
+                document.getElementById("fname").style.border = "1px solid green";
+                document.getElementById("lastname").style.display = "block";
+                document.getElementById("lname").style.border = "1px solid red";
+            } else if (subject == "") {
+                document.getElementById("lastname").style.display = "none";
+                document.getElementById("lname").style.border = "1px solid green";
+                document.getElementById("sub").style.display = "block";
+                document.getElementById("subject").style.border = "1px solid red";    
+            } else {
+                document.getElementById("lastname").style.display = "none";
+                document.getElementById("lname").style.border = "1px solid green";
+                document.getElementById("firstname").style.display = "none";
+                document.getElementById("fname").style.border = "1px solid green";
+                document.getElementById("sub").style.display = "none";
+                document.getElementById("subject").style.border = "1px solid green";   
+            }
+        }
+
+        $(document).ready(function(){
+          $(".form-group .form-control").blur(function(){
+              if($(this).val()!=""){
+                  $(this).siblings("label").addClass("active");
+              }else{
+                $(this).siblings("label").removeClass("active");
+              }
+          });
+        });
+
+
+    </script>
+
+</body>
+
+</html>

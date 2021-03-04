@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Social Form</title>
+    <link href="style.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</head>
+
+<body>
+   
+    <div class="col-md-5 border border-info p-3 " id="social">
+        <form action="#" method="POST" name="loginform">
+        <h3 class="text-center">Login with Social or Manually </h3>
+        <div class="d-flex flex-wrap align-items-center justify-content-center">
+            <div class="d-flex flex-column flex-wrap">
+                <a href="#" class="fb btn btn-primary m-2">
+                    <i class="fa fa-facebook fa-fw"></i> Login with Facebook
+                </a>
+                <a href="#" class="twitter btn btn-warning m-2">
+                    <i class="fa fa-twitter fa-fw"></i> Login with Twitter
+                </a>
+                <a href="#" class="google btn btn-danger m-2"><i class="fa fa-google fa-fw">
+                    </i> Login with Google+
+                </a> 
+                <div class="mt-4 ml-2 ">
+               <button class="btn btn-primary col-md-11">Signup</button>
+            </div> 
+            <div class="vl mt-2 ml-2">
+                <span class="vl-text">or</span>
+            </div>
+            </div>
+            <div class="mt-2 ml-5">
+               
+                    <div class="form-group">
+                        <input type="text"  name="username" id="uname" class="form-control">
+                        <label>User Name</label>
+                        <span id="user">Enter Your Username </span>
+                    </div>
+                    <div class="form-group">
+                        <input type="password"  name="password" id="password"
+                            class="form-control">
+                            <label>Password</label>
+                        <span id="psw">Enter Your Password</span>
+                    </div>
+                    <div>
+                        <button class="btn btn-warning text-white form-control" type="button"
+                            onclick="validateLogin()">Login</button>
+                    </div>
+                    <div class="d-flex justify-content-center align-items-center mt-5">
+                        <span class="psw"> <a href="#">Forgot password?</a></span>
+                    </div>             
+            </div>
+        </div>
+    </form>
+    </div>
+    <script>
+        function validateLogin() {
+            var username = document.getElementById("uname").value;
+            var password = document.getElementById("password").value;
+
+            if (username == "") {
+                document.getElementById("user").style.display = "block";
+                document.getElementById("uname").style.border = "1px solid red";
+            } else if (password == "") {
+                document.getElementById("user").style.display = "none";
+                document.getElementById("uname").style.border = "1px solid green";
+                document.getElementById("psw").style.display = "block";
+                document.getElementById("password").style.border = "1px solid red";
+            } else {
+                document.getElementById("user").style.display = "none";
+                document.getElementById("uname").style.border = "1px solid green";
+                document.getElementById("psw").style.display = "none";
+                document.getElementById("password").style.border = "1px solid green";
+            }
+        }
+
+        $(document).ready(function(){
+          $(".form-group .form-control").blur(function(){
+              if($(this).val()!=""){
+                  $(this).siblings("label").addClass("active");
+              }else{
+                $(this).siblings("label").removeClass("active");
+              }
+          });
+        });
+    </script>
+
+</body>
+
+</html>
